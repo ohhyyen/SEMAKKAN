@@ -15,9 +15,9 @@ const LoginPage: React.FC = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    // Tambah pengesahan panjang kata laluan di sini
-    if (password.length < 8) {
-      showError('Kata Laluan mesti mengandungi sekurang-kurangnya 8 aksara.');
+    // Pindahkan pengesahan panjang ke medan nama pengguna
+    if (username.length < 8) {
+      showError('Nama Pengguna mesti mengandungi sekurang-kurangnya 8 aksara.');
       setIsLoading(false);
       return; // Hentikan penghantaran borang jika pengesahan gagal
     }
