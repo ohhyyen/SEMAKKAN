@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bank-islam-red: 337 79% 48%; /* #D81B60 */
+    --bank-islam-red-light: 337 79% 51.1%; /* #DD3270 */
+    --bank-islam-red-dark: 337 79% 41.7%; /* #BE1854 */
+    --bank-islam-red-glow: 337 100% 88%; /* Warna kilauan yang sangat cerah */
+
+    --background: var(--bank-islam-red);
+    --foreground: 0 0% 98%; /* Near white */
+
+    --card: var(--background);
+    --card-foreground: var(--foreground);
+
+    --popover: var(--background);
+    --popover-foreground: var(--foreground);
+
+    --primary: 0 0% 98%; /* White for primary buttons/text */
+    --primary-foreground: var(--bank-islam-red); /* Text on primary buttons */
+
+    --secondary: var(--bank-islam-red-light);
+    --secondary-foreground: var(--foreground);
+
+    --muted: var(--bank-islam-red-light);
+    --muted-foreground: 0 0% 80%;
+
+    --accent: var(--bank-islam-red-light);
+    --accent-foreground: var(--foreground);
+
+    --destructive: 0 84.2% 60.2%; /* Keep default red for destructive */
+    --destructive-foreground: 210 40% 98%;
+
+    --border: var(--bank-islam-red-light);
+    --input: var(--bank-islam-red-light);
+    --ring: var(--foreground);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: var(--bank-islam-red-dark);
+    --sidebar-foreground: var(--foreground);
+    --sidebar-primary: var(--foreground);
+    --sidebar-primary-foreground: var(--bank-islam-red-dark);
+    --sidebar-accent: var(--bank-islam-red-light);
+    --sidebar-accent-foreground: var(--foreground);
+    --sidebar-border: var(--bank-islam-red-light);
+    --sidebar-ring: var(--foreground);
+  }
+
+  .dark {
+    --background: var(--bank-islam-red);
+    --foreground: 0 0% 98%;
+
+    --card: var(--background);
+    --card-foreground: var(--foreground);
+
+    --popover: var(--background);
+    --popover-foreground: var(--foreground);
+
+    --primary: 0 0% 98%;
+    --primary-foreground: var(--bank-islam-red);
+
+    --secondary: var(--bank-islam-red-light);
+    --secondary-foreground: var(--foreground);
+
+    --muted: var(--bank-islam-red-light);
+    --muted-foreground: 0 0% 80%;
+
+    --accent: var(--bank-islam-red-light);
+    --accent-foreground: var(--foreground);
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: var(--bank-islam-red-light);
+    --input: var(--bank-islam-red-light);
+    --ring: var(--foreground);
+
+    --sidebar-background: var(--bank-islam-red-dark);
+    --sidebar-foreground: var(--foreground);
+    --sidebar-primary: var(--foreground);
+    --sidebar-primary-foreground: var(--bank-islam-red-dark);
+    --sidebar-accent: var(--bank-islam-red-light);
+    --sidebar-accent-foreground: var(--foreground);
+    --sidebar-border: var(--bank-islam-red-light);
+    --sidebar-ring: var(--foreground);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply text-foreground font-sans;
+    background-color: hsl(var(--background));
+    background-image: 
+      url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='a' patternUnits='userSpaceOnUse' width='50' height='50' patternTransform='scale(2) rotate(45)'%3E%3Cpath d='M25 0v50M0 25h50' stroke='rgba(255,255,255,0.1)' stroke-width='8'/%3E%3Cpath d='M25 0v50M0 25h50' stroke='rgba(255,255,255,0.05)' stroke-width='20'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23a)'/%3E%3C/svg%3E"),
+      radial-gradient(ellipse at center, hsl(var(--bank-islam-red-glow)), hsl(var(--background)) 30%);
+    min-height: 100vh;
+  }
+}
