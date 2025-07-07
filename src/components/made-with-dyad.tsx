@@ -5,7 +5,7 @@ export const MadeWithDyad = () => {
         href="https://www.dyad.sh/"
         target="_blank"
         rel="noopener noreferrer"
-        className="text-sm text-primary hover:text-primary/80"
+        className="text-sm text-primary-foreground hover:text-primary-foreground/80"
       >
         Made with Dyad
       </a>
